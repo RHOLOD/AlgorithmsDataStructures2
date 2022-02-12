@@ -28,15 +28,11 @@ namespace AlgorithmsDataStructures2
 
         public void AddChild(SimpleTreeNode<T> ParentNode, SimpleTreeNode<T> NewChild)
         {
-            NewChild.Parent = ParentNode;
-            ParentNode.Children.Add(NewChild);
             // ваш код добавления нового дочернего узла существующему ParentNode
         }
 
         public void DeleteNode(SimpleTreeNode<T> NodeToDelete)
         {
-            NodeToDelete.Parent.Children = null;
-            NodeToDelete.Parent = null;
             // ваш код удаления существующего узла NodeToDelete
         }
 
