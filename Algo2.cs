@@ -65,6 +65,7 @@ namespace AlgorithmsDataStructures2
             if (bSTFind.Node == null) return false;
             if (bSTFind.NodeHasKey == true)
             {
+                bSTFind.Node.NodeValue = val;
                 return false; // если ключ уже есть
             }
             else
