@@ -205,6 +205,10 @@ namespace AlgorithmsDataStructures2
 
         public int Count()
         {
+            if (Root == null)
+            {
+                return 0;
+            }
             Dictionary<BSTNode<T>, int> dictionary = new Dictionary<BSTNode<T>, int>();
 
             Enumeration(Root);
