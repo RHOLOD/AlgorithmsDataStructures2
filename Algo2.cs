@@ -61,24 +61,8 @@ namespace AlgorithmsDataStructures2
                 Root = bSTNode;
                 return true;
             }
-            else
-            {
-                Dictionary<BSTNode<T>, int> dictionary = new Dictionary<BSTNode<T>, int>();
-                Enumeration(Root);
-                void Enumeration(BSTNode<T> node)
-                {
-                    if (node != null) dictionary.Add(node, node.NodeKey);
-                    if (node.LeftChild != null) Enumeration(node.LeftChild);
-                    if (node.RightChild != null) Enumeration(node.RightChild);
-                }
-                foreach (var d in dictionary)
-                {
-                    if (d.Value == key) return false;                    
-                }
-            }
 
             BSTFind<T> bSTFind = FindNodeByKey(key);
-            if (bSTFind.Node == null) return false;
             if (bSTFind.NodeHasKey == true)
             {
                 //bSTFind.Node.NodeValue = val;
