@@ -50,8 +50,7 @@ namespace AlgorithmsDataStructures2
             BSTFind<T> bSTFind = Seach(Root, key);
             // ищем в дереве узел и сопутствующую информацию по ключу
 
-            if (bSTFind.NodeHasKey == true) return bSTFind;
-            else return null;
+            return bSTFind;
         }
 
         public bool AddKeyValue(int key, T val)
