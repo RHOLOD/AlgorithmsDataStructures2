@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AlgorithmsDataStructures233
+namespace AlgorithmsDataStructures2
 {
     public class BSTNode<T>
     {
