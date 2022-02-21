@@ -114,6 +114,11 @@ namespace AlgorithmsDataStructures2
             BSTFind<T> bSTFind = Seach(Root,key);
             if (bSTFind.NodeHasKey == true)
             {
+                if (bSTFind.Node.Parent == null)
+                {
+                    Root = null;
+                    return true;
+                }
                 if (bSTFind.Node.LeftChild == null && bSTFind.Node.RightChild == null) 
                 {
                     BSTFind<T> bSTFindParent = Seach(Root,bSTFind.Node.Parent.NodeKey);
