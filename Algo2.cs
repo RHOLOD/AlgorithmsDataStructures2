@@ -56,18 +56,6 @@ namespace AlgorithmsDataStructures2
 
         public bool AddKeyValue(int key, T val)
         {
-                Dictionary<BSTNode<T>, int> dictionary = new Dictionary<BSTNode<T>, int>();
-                Enumeration(Root);
-                void Enumeration(BSTNode<T> node)
-                {
-                    if (node != null) dictionary.Add(node, node.NodeKey);
-                    if (node.LeftChild != null) Enumeration(node.LeftChild);
-                    if (node.RightChild != null) Enumeration(node.RightChild);
-                }
-                foreach (var d in dictionary)
-                {
-                    if (d.Value == key) return false;                    
-                }
             BSTFind<T> bSTFind = Seach(Root,key);
 
             if (bSTFind.NodeHasKey == true)
