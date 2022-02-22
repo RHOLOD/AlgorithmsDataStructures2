@@ -544,7 +544,7 @@ namespace UnitTestAlgo2
         }
         [TestMethod]
 
-        public void TestMetho125() // удаления  5 проверка родителя узла 19
+        public void TestMetho125() // удаления  5, проверка  узла 19 до корня 
         {
             /// дерево 33, 5, 35, 1, 20, 99, 17, 18, 19, 4
             /// 
