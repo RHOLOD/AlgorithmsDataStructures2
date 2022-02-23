@@ -49,7 +49,6 @@ namespace AlgorithmsDataStructures2
             if (Root == null)
             {
                 BSTFind<T> bSTFind1 = new BSTFind<T>();
-                Root = null;
                 return bSTFind1;
             }
             BSTFind<T> bSTFind = Seach(Root, key);
