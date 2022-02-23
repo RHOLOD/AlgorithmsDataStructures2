@@ -46,7 +46,12 @@ namespace AlgorithmsDataStructures2
 
         public BSTFind<T> FindNodeByKey(int key)
         {
-            if (Root == null) return null;
+            if (Root == null)
+            {
+                BSTFind<T> bSTFind1 = new BSTFind<T>();
+                Root = null;
+                return bSTFind1;
+            }
             BSTFind<T> bSTFind = Seach(Root, key);
             // ищем в дереве узел и сопутствующую информацию по ключу
             
