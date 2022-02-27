@@ -353,17 +353,17 @@ namespace AlgorithmsDataStructures2
             Queue<BSTNode<T>> queue = new Queue<BSTNode<T>>();
             List<BSTNode> list = new List<BSTNode>();
             if (Root == null) return list;
+            if (selection == 2)
+            {
+                NLR(Root); //pre-order
+            }
             if (selection == 0)
             {
-                NLR(Root);
+                LNR(Root);//in -oreder
             }
-            else if (selection == 1)
+            if (selection == 1)
             {
-                LNR(Root);
-            }
-            else if (selection == 2)
-            {
-                LRN(Root);
+                LRN(Root);//post-order
             }
             void NLR(BSTNode<T> node)
             {
