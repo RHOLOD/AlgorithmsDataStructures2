@@ -12,7 +12,7 @@ namespace AlgorithmsDataStructures2
             // правильно рассчитайте размер массива для дерева глубины depth:           
             int tree_size = 0;
             int level = 1;
-            for (int i = 1; i <= depth; i++) 
+            for (int i = 0; i <= depth; i++) 
             {               
                 tree_size = tree_size + level;
                 level = level * 2;
