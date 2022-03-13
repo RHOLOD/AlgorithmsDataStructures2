@@ -15,7 +15,7 @@ namespace AlgorithmsDataStructures2
 			void Generate(int[] b, int intexRoot)
 			{
 				if(b.Length != 0)
-                {
+                		{
 					int index = b.Length / 2;
 					array[intexRoot] = b[index];
 					int[] arrayLeft = new int[index];
