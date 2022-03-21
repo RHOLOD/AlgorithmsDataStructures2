@@ -41,7 +41,23 @@ namespace AlgorithmsDataStructures2
 
 		public bool IsBalanced(BSTNode root_node)
 		{
-			if (root_node == null) return false;
+			Node(root_node);
+			bool isBalanced = true;
+			void Node(BSTNode node)
+			{
+				if (node.LeftChild != null)
+                {
+					if (!(node.LeftChild.NodeKey < node.NodeKey)) isBalanced = false;
+					Node(node.LeftChild);
+                }
+				if (node.RightChild != null)
+                {
+					if (!(node.RightChild.NodeKey > node.NodeKey)) isBalanced = false;
+					Node(node.RightChild);
+				}
+			}
+			if (isBalanced == false) return false;
+
 			List<BSTNode> list = new List<BSTNode>();
 			AddList(root_node);
 			void AddList (BSTNode node)
@@ -57,10 +73,8 @@ namespace AlgorithmsDataStructures2
             }
 			listLevel.Sort();
 			int min = listLevel[0];
-			foreach (var item in listLevel)
-            {
-				if (item - min > 1) return false;
-            }
+			int max = listLevel[listLevel.Count - 1];
+			if (Math.Abs(max - min) >= 2) return false;
 			return true; // сбалансировано ли дерево с корнем root_node
 		}
 		BSTNode F(BSTNode node, int[] array,int lev)
