@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace AlgorithmsDataStructures2
@@ -41,41 +41,26 @@ namespace AlgorithmsDataStructures2
 
 		public bool IsBalanced(BSTNode root_node)
 		{
-			Node(root_node);
-			bool isBalanced = true;
-			void Node(BSTNode node)
-			{
-				if (node.LeftChild != null)
-                {
-					if (!(node.LeftChild.NodeKey < node.NodeKey)) isBalanced = false;
-					Node(node.LeftChild);
-                }
-				if (node.RightChild != null)
-                {
-					if (!(node.RightChild.NodeKey > node.NodeKey)) isBalanced = false;
-					Node(node.RightChild);
-				}
-			}
-			if (isBalanced == false) return false;
+			int lh; // для высоты левого поддерева
+			int rh; // для высоты правого поддерева
+			/*Если дерево пусто, вернуть true */
 
-			List<BSTNode> list = new List<BSTNode>();
-			AddList(root_node);
-			void AddList (BSTNode node)
-            {
-				if (node != null) list.Add(node);
-				if (node.LeftChild != null) AddList(node.LeftChild);
-				if (node.RightChild != null) AddList(node.RightChild);
+			if (root_node == null)
+			{
+				return true;
 			}
-			List<int> listLevel = new List<int>();
-			foreach (var item in list)
-            {
-				if (item.LeftChild == null && item.RightChild == null) listLevel.Add(item.Level);
-            }
-			listLevel.Sort();
-			int min = listLevel[0];
-			int max = listLevel[listLevel.Count - 1];
-			if (Math.Abs(max - min) >= 2) return false;
-			return true; // сбалансировано ли дерево с корнем root_node
+			/*Получить высоту левого и правого поддеревьев */
+
+			lh = height(root_node.LeftChild);
+			rh = height(root_node.RightChild);
+
+			if (Math.Abs(lh - rh) <= 1 && IsBalanced(root_node.LeftChild) && IsBalanced(root_node.RightChild))
+			{
+				return true;
+			}
+			/*Если мы достигаем здесь, то дерево не сбалансировано по высоте */
+
+			return false; // сбалансировано ли дерево с корнем root_node
 		}
 		BSTNode F(BSTNode node, int[] array,int lev)
         {
@@ -90,11 +75,24 @@ namespace AlgorithmsDataStructures2
 			int[] arrayRight = new int[index];
 			Array.Copy(array, 0, arrayLeft, 0, index);
 			Array.Copy(array, index + 1, arrayRight, 0, index);
-			bSTNode.LeftChild = F(bSTNode, arrayLeft,bSTNode.Level);
+			bSTNode.LeftChild = F(bSTNode, arrayLeft, bSTNode.Level);
 			bSTNode.RightChild = F(bSTNode, arrayRight, bSTNode.Level);
 
 			return bSTNode;
-        }
+		}
+		public int height(BSTNode node)
+		{
+			/*базовое дерево пусто */
+
+			if (node == null)
+			{
+				return 0;
+			}
+			/*Если дерево не пустое, то высота = 1 + максимум слева
+		   высота и правая высота */
+
+			return 1 + Math.Max(height(node.LeftChild), height(node.RightChild));
+		}
 
 	}
 }
