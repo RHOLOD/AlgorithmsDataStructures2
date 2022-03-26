@@ -41,6 +41,7 @@ namespace AlgorithmsDataStructures2
 					if (HeapArray[i] == 0)
                     {
 						HeapArray[0] = HeapArray[i - 1];
+						HeapArray[i - 1] = 0;
 						SiftingDown(0);
 						return rootTree;
 
