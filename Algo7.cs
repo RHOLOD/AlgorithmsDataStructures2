@@ -34,21 +34,26 @@ namespace AlgorithmsDataStructures2
 		{
 			// вернуть значение корня и перестроить кучу
 			if (HeapArray != null)
-            {				
-				int rootTree = HeapArray[0];
-				for (int i = 1; i < HeapArray.Length; i++)
-                {
-					if (HeapArray[i] == 0)
-                    {
-						HeapArray[0] = HeapArray[i - 1];
-						HeapArray[i - 1] = 0;
-						SiftingDown(0);
-						return rootTree;
+            		{			
+				if (HeapArray[0] != 0)
+                		{
+					int rootTree = HeapArray[0];
+					for (int i = 1; i < HeapArray.Length; i++)
+					{
+						if (HeapArray[i] == 0)
+						{
+							HeapArray[0] = HeapArray[i - 1];
+							HeapArray[i - 1] = 0;
+							SiftingDown(0);
+							return rootTree;
 
+						}
 					}
-                }
-
-
+					HeapArray[0] = HeapArray[HeapArray.Length-1];
+					HeapArray[HeapArray.Length-1] = 0;
+					SiftingDown(0);
+					return rootTree;
+				}
 			}
 			return -1; // если куча пуста
 		}
