@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace AlgorithmsDataStructures2
@@ -33,8 +33,8 @@ namespace AlgorithmsDataStructures2
 		public int GetMax()
 		{
 			// вернуть значение корня и перестроить кучу
-			if (HeapArray != null && HeapArray[1] != 0)
-            {
+			if (HeapArray != null)
+            {				
 				int rootTree = HeapArray[0];
 				for (int i = 1; i < HeapArray.Length; i++)
                 {
@@ -92,25 +92,9 @@ namespace AlgorithmsDataStructures2
 			int indexRight = 2 * i + 2;
 			if (indexLeft < HeapArray.Length)
             {
-				if (HeapArray[i] < HeapArray[indexLeft] && HeapArray[i] > HeapArray[indexRight])
+				if (HeapArray[indexRight] > HeapArray[indexLeft])
 				{
-					int item = HeapArray[i];
-					HeapArray[i] = HeapArray[indexLeft];
-					HeapArray[indexLeft] = item;
-					SiftingDown(indexLeft);
-					return true;
-				}
-				else if (HeapArray[i] > HeapArray[indexLeft] && HeapArray[i] < HeapArray[indexRight])
-				{
-					int item = HeapArray[i];
-					HeapArray[i] = HeapArray[indexRight];
-					HeapArray[indexRight] = item;
-					SiftingDown(indexRight);
-					return true;
-				}
-				else if (HeapArray[i] < HeapArray[indexLeft] && HeapArray[i] < HeapArray[indexRight])
-				{
-					if (HeapArray[indexRight] > HeapArray[indexLeft])
+					if(HeapArray[i] < HeapArray[indexRight])
                     {
 						int item = HeapArray[i];
 						HeapArray[i] = HeapArray[indexRight];
@@ -118,7 +102,10 @@ namespace AlgorithmsDataStructures2
 						SiftingDown(indexRight);
 						return true;
 					}
-					else
+				}
+				else if (HeapArray[indexRight] < HeapArray[indexLeft])
+				{
+					if (HeapArray[i] < HeapArray[indexLeft])
                     {
 						int item = HeapArray[i];
 						HeapArray[i] = HeapArray[indexLeft];
