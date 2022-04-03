@@ -31,6 +31,7 @@ namespace AlgorithmsDataStructures2
 
             // ...
             SearchEvenTreens(Root);
+            
             void SearchEvenTreens(SimpleTreeNode<T> node)
             {
                 if (node.Children != null)
@@ -49,6 +50,7 @@ namespace AlgorithmsDataStructures2
             }
             return list;
         }
+        
         public void AddChild(SimpleTreeNode<T> ParentNode, SimpleTreeNode<T> NewChild)
         {
             SimpleTreeNode<T> item = SearchNode(Root, ParentNode);
@@ -171,6 +173,7 @@ namespace AlgorithmsDataStructures2
             // количество листьев в дереве
             return count;
         }
+        
         public SimpleTreeNode<T> SearchNode(SimpleTreeNode<T> node, SimpleTreeNode<T> searched)
         {
             SimpleTreeNode<T> result = null;
@@ -191,10 +194,12 @@ namespace AlgorithmsDataStructures2
             }
             return result;
         }
+        
         public int CountInSubtree(SimpleTreeNode<T> treeNode)
         {
             int count = 0;
             SearchEvenTreens(treeNode);
+            
             void SearchEvenTreens(SimpleTreeNode<T> node)
             {
                 count++;
