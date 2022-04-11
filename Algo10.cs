@@ -92,11 +92,11 @@ namespace AlgorithmsDataStructures2
             List<Vertex<T>> list = new List<Vertex<T>>();
             if (VFrom > max_vertex || VTo > max_vertex) return list;
             Stack<Vertex<T>> stack = new Stack<Vertex<T>>();
+            stack.Push(vertex[VFrom]);
       
 
             bool FindingPath (int nodeFrom)
             {
-                stack.Push(vertex[nodeFrom]);
                 vertex[nodeFrom].Hit = true;
                 for (int i = 0; i < max_vertex; i++)
                 {
